@@ -19,6 +19,11 @@
 		6686CB572592947D00A7F2EB /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6686CB562592947D00A7F2EB /* DataRequest.swift */; };
 		6686CB5C2592955D00A7F2EB /* RequestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6686CB5B2592955D00A7F2EB /* RequestRouter.swift */; };
 		66880E9F25932E6C00A372CA /* ProductCatalogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66880E9E25932E6C00A372CA /* ProductCatalogController.swift */; };
+		66880EAD259356E800A372CA /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66880EAC259356E800A372CA /* LoginController.swift */; };
+		66880EB22593570300A372CA /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66880EB12593570300A372CA /* RegistrationController.swift */; };
+		66880EB72593573E00A372CA /* InputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66880EB62593573E00A372CA /* InputContainerView.swift */; };
+		66880EBC2593576200A372CA /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66880EBB2593576200A372CA /* CustomTextField.swift */; };
+		66880EC12593577D00A372CA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66880EC02593577D00A372CA /* Extensions.swift */; };
 		66ADAE1C259297F500CAA0F8 /* LoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ADAE1B259297F500CAA0F8 /* LoginResult.swift */; };
 		66ADAE212592980700CAA0F8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ADAE202592980700CAA0F8 /* User.swift */; };
 		66ADAE272592988000CAA0F8 /* AuthRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ADAE262592988000CAA0F8 /* AuthRequestFactory.swift */; };
@@ -67,6 +72,11 @@
 		6686CB562592947D00A7F2EB /* DataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
 		6686CB5B2592955D00A7F2EB /* RequestRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestRouter.swift; sourceTree = "<group>"; };
 		66880E9E25932E6C00A372CA /* ProductCatalogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCatalogController.swift; sourceTree = "<group>"; };
+		66880EAC259356E800A372CA /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		66880EB12593570300A372CA /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
+		66880EB62593573E00A372CA /* InputContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputContainerView.swift; sourceTree = "<group>"; };
+		66880EBB2593576200A372CA /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		66880EC02593577D00A372CA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		66ADAE1B259297F500CAA0F8 /* LoginResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResult.swift; sourceTree = "<group>"; };
 		66ADAE202592980700CAA0F8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		66ADAE262592988000CAA0F8 /* AuthRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRequestFactory.swift; sourceTree = "<group>"; };
@@ -209,6 +219,8 @@
 			isa = PBXGroup;
 			children = (
 				66880E9E25932E6C00A372CA /* ProductCatalogController.swift */,
+				66880EAC259356E800A372CA /* LoginController.swift */,
+				66880EB12593570300A372CA /* RegistrationController.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -226,6 +238,9 @@
 			children = (
 				66589612258B3FF3003B93C4 /* LaunchScreen.storyboard */,
 				66589610258B3FF3003B93C4 /* Assets.xcassets */,
+				66880EB62593573E00A372CA /* InputContainerView.swift */,
+				66880EBB2593576200A372CA /* CustomTextField.swift */,
+				66880EC02593577D00A372CA /* Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -509,9 +524,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66880EB22593570300A372CA /* RegistrationController.swift in Sources */,
 				66ADAE342592998500CAA0F8 /* RequestFactory.swift in Sources */,
 				66880E9F25932E6C00A372CA /* ProductCatalogController.swift in Sources */,
 				6686CB4A259293F200A7F2EB /* AbstractErrorParser.swift in Sources */,
+				66880EBC2593576200A372CA /* CustomTextField.swift in Sources */,
+				66880EB72593573E00A372CA /* InputContainerView.swift in Sources */,
+				66880EAD259356E800A372CA /* LoginController.swift in Sources */,
 				66ADAE1C259297F500CAA0F8 /* LoginResult.swift in Sources */,
 				6686CB572592947D00A7F2EB /* DataRequest.swift in Sources */,
 				6686CB5C2592955D00A7F2EB /* RequestRouter.swift in Sources */,
@@ -519,6 +538,7 @@
 				66ADAE2F259298B400CAA0F8 /* Auth.swift in Sources */,
 				66ADAE272592988000CAA0F8 /* AuthRequestFactory.swift in Sources */,
 				66589608258B3FF3003B93C4 /* AppDelegate.swift in Sources */,
+				66880EC12593577D00A372CA /* Extensions.swift in Sources */,
 				6658960A258B3FF3003B93C4 /* SceneDelegate.swift in Sources */,
 				6686CB522592942E00A7F2EB /* ErrorParser.swift in Sources */,
 			);
