@@ -2,7 +2,7 @@
 //  ShopperViewController.swift
 //  LSShop
 //
-//  Created by Станислав Лемешаев on 23.12.2020.
+//  Created by Станислав Лемешаев on 27.12.2020.
 //
 
 import UIKit
@@ -11,7 +11,7 @@ class ShopperViewController: UIViewController {
     
     // MARK: - Properties
     
-    private var viewModel = RegistrationViewModel()
+    private var viewModel = ShopperViewModel()
     
     // - iconImage
     private let iconImage: UIImageView = {
@@ -47,7 +47,19 @@ class ShopperViewController: UIViewController {
     }()
     private let emailTextField = CustomTextField(placeholder: "Email")
     
-    // - genderContainerView
+    // - genderSegmentedControl
+    private let genderSegmentedControl: UISegmentedControl = {
+        let genderItems = ["М", "Ж"]
+        let segmentedControl = UISegmentedControl(items: genderItems)
+        segmentedControl.backgroundColor = .clear
+        let titleTextNormal = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        let titleTextSelected = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        segmentedControl.setTitleTextAttributes(titleTextNormal, for: .normal)
+        segmentedControl.setTitleTextAttributes(titleTextSelected, for: .selected)
+        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.addTarget(self, action: #selector(handleGenderItems), for: .valueChanged)
+        return segmentedControl
+    }()
     
     // - creditCardContainerView
     private lazy var creditCardContainerView: UIView = {
@@ -57,6 +69,11 @@ class ShopperViewController: UIViewController {
     private let creditCardTextField = CustomTextField(placeholder: "Номер карты")
     
     // - bioContainerView
+    private lazy var bioContainerView: UIView = {
+        return InputContainerView(image: UIImage(systemName: "person"),
+                                  textField: bioTextField)
+    }()
+    private let bioTextField = CustomTextField(placeholder: "Обо мне")
     
     // - signUpButton
     private let signUpButton: UIButton = {
@@ -95,17 +112,25 @@ class ShopperViewController: UIViewController {
     
     // MARK: - Selectors
     @objc func textDidChange(sender: UITextField) {
-        if sender == emailTextField {
-            viewModel.email = sender.text
+        if sender == userNameTextField  {
+            viewModel.userName = sender.text
         } else if sender == passwordTextField {
             viewModel.password = sender.text
-        } else if sender == fullNameTextField {
-            viewModel.fullName = sender.text
-        } else if sender == userNameTextField{
-            viewModel.userName = sender.text
+        } else if sender == emailTextField {
+            viewModel.email = sender.text
         }
-        
         checkFormStatus()
+    }
+    
+    @objc func handleGenderItems(_ segmentedControl: UISegmentedControl) {
+        switch (segmentedControl.selectedSegmentIndex) {
+        case 0:
+            break
+        case 1:
+            break
+        default:
+            break
+        }
     }
     
     @objc func handleSignUpButton() {
@@ -123,13 +148,13 @@ class ShopperViewController: UIViewController {
         view.addSubview(iconImage)
         
         iconImage.centerX(inView: view)
-        iconImage.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 32)
-        iconImage.setDimensions(height: 120, width: 140)
+        iconImage.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 22)
+        iconImage.setDimensions(height: 100, width: 120)
         
         let stackView = UIStackView(arrangedSubviews: [userNameContainerView,
                                                        passwordContainerView,
                                                        emailContainerView,
-                                                       genderContainerView,
+                                                       genderSegmentedControl,
                                                        creditCardContainerView,
                                                        bioContainerView,
                                                        signUpButton])
@@ -147,10 +172,9 @@ class ShopperViewController: UIViewController {
     }
     
     func configureNotificationObservers() {
-        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
-        passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
-        fullNameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         userNameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
 }
 

@@ -6,15 +6,13 @@
 //
 
 struct ShopperViewModel: AuthenticationProtocol {
-    var email: String?
-    var password: String?
-    var fullName: String?
     var userName: String?
+    var password: String?
+    var email: String?
     
     var formIsValid: Bool {
-        return email?.isEmpty == false
+        return userName?.isEmpty == false
             && password?.isEmpty == false
-            && fullName?.isEmpty == false
-            && userName?.isEmpty == false
+            && email?.isEmpty == false
     }
 }

@@ -21,13 +21,13 @@ class LoginController: UIViewController {
         return imageView
     }()
     
-    // - emailContainerView
-    private lazy var emailContainerView: UIView = {
-        return InputContainerView(image: UIImage(systemName: "envelope"),
-                                  textField: emailTextField)
+    // - userNameContainerView
+    private lazy var userNameContainerView: UIView = {
+        return InputContainerView(image: UIImage(systemName: "person"),
+                                  textField: userNameTextField)
     }()
     
-    private let emailTextField = CustomTextField(placeholder: "Email")
+    private let userNameTextField = CustomTextField(placeholder: "Имя пользователя")
     
     // - passwordContainerView
     private lazy var passwordContainerView: InputContainerView = {
@@ -82,12 +82,12 @@ class LoginController: UIViewController {
     }
     
     @objc func handleShowSignUp() {
-        let controller = RegistrationController()
+        let controller = ShopperViewController()
         navigationController?.pushViewController(controller, animated: true)
     }
     
     @objc func textDidChange(sender: UITextField) {
-        if sender == emailTextField {
+        if sender == userNameTextField {
             viewModel.email = sender.text
         } else {
             viewModel.password = sender.text
@@ -110,7 +110,7 @@ class LoginController: UIViewController {
         iconImage.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 32)
         iconImage.setDimensions(height: 120, width: 140)
         
-        let stackView = UIStackView(arrangedSubviews: [emailContainerView,
+        let stackView = UIStackView(arrangedSubviews: [userNameContainerView,
                                                        passwordContainerView,
                                                        loginButton])
         stackView.axis = .vertical
@@ -125,7 +125,7 @@ class LoginController: UIViewController {
         dontHaveAccountButton.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor,
                                      paddingLeft: 32, paddingBottom: 16, paddingRight: 32)
         
-        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        userNameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
     
