@@ -49,7 +49,7 @@ class LoginController: UIViewController {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         button.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
         button.setTitleColor(.white, for: .normal)
-        button.addTarget(self, action: #selector(handleShowConversations), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleShowProducts), for: .touchUpInside)
         button.setHeight(height: 50)
         button.isEnabled = false
         return button
@@ -76,8 +76,9 @@ class LoginController: UIViewController {
     }
     
     // MARK: - Selectors
-    @objc func handleShowConversations() {
+    @objc func handleShowProducts() {
         let controller = ProductCatalogController()
+        controller.hidesBottomBarWhenPushed = false
         navigationController?.pushViewController(controller, animated: true)
     }
     
