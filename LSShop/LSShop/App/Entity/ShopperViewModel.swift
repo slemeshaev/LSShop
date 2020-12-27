@@ -1,11 +1,11 @@
 //
-//  RegistrationViewModel.swift
+//  ShopperViewModel.swift
 //  LSShop
 //
 //  Created by Станислав Лемешаев on 27.12.2020.
 //
 
-struct RegistrationViewModel: AuthenticationProtocol {
+struct ShopperViewModel: AuthenticationProtocol {
     var email: String?
     var password: String?
     var fullName: String?

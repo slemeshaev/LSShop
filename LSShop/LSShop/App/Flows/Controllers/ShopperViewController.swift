@@ -1,5 +1,5 @@
 //
-//  RegistrationController.swift
+//  ShopperViewController.swift
 //  LSShop
 //
 //  Created by Станислав Лемешаев on 23.12.2020.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RegistrationController: UIViewController {
+class ShopperViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -21,28 +21,14 @@ class RegistrationController: UIViewController {
         return imageView
     }()
     
-    // - emailContainerView
-    private lazy var emailContainerView: UIView = {
-        return InputContainerView(image: UIImage(systemName: "envelope"),
-                                  textField: emailTextField)
-    }()
-    private let emailTextField = CustomTextField(placeholder: "Email")
-    
-    // - fullNameContainerView
-    private lazy var fullNameContainerView: UIView = {
-        return InputContainerView(image: UIImage(systemName: "person"),
-                                  textField: fullNameTextField)
-    }()
-    private let fullNameTextField = CustomTextField(placeholder: "Полное имя")
-    
     // - userNameContainerView
     private lazy var userNameContainerView: UIView = {
         return InputContainerView(image: UIImage(systemName: "person"),
                                   textField: userNameTextField)
     }()
-    
-    // - userNameTextField
     private let userNameTextField = CustomTextField(placeholder: "Имя пользователя")
+    
+    // - passwordContainerView
     private lazy var passwordContainerView: InputContainerView = {
         return InputContainerView(image: UIImage(systemName: "lock"),
                                   textField: passwordTextField)
@@ -53,6 +39,24 @@ class RegistrationController: UIViewController {
         textField.isSecureTextEntry = true
         return textField
     }()
+    
+    // - emailContainerView
+    private lazy var emailContainerView: UIView = {
+        return InputContainerView(image: UIImage(systemName: "envelope"),
+                                  textField: emailTextField)
+    }()
+    private let emailTextField = CustomTextField(placeholder: "Email")
+    
+    // - genderContainerView
+    
+    // - creditCardContainerView
+    private lazy var creditCardContainerView: UIView = {
+        return InputContainerView(image: UIImage(systemName: "creditcard"),
+                                  textField: creditCardTextField)
+    }()
+    private let creditCardTextField = CustomTextField(placeholder: "Номер карты")
+    
+    // - bioContainerView
     
     // - signUpButton
     private let signUpButton: UIButton = {
@@ -122,10 +126,12 @@ class RegistrationController: UIViewController {
         iconImage.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 32)
         iconImage.setDimensions(height: 120, width: 140)
         
-        let stackView = UIStackView(arrangedSubviews: [emailContainerView,
+        let stackView = UIStackView(arrangedSubviews: [userNameContainerView,
                                                        passwordContainerView,
-                                                       fullNameContainerView,
-                                                       userNameContainerView,
+                                                       emailContainerView,
+                                                       genderContainerView,
+                                                       creditCardContainerView,
+                                                       bioContainerView,
                                                        signUpButton])
         stackView.axis = .vertical
         stackView.spacing = 16
@@ -149,7 +155,7 @@ class RegistrationController: UIViewController {
 }
 
 // MARK: - AuthenticationControllerProtocol
-extension RegistrationController: AuthenticationControllerProtocol {
+extension ShopperViewController: AuthenticationControllerProtocol {
     // проверка состояния формы
     func checkFormStatus() {
         if viewModel.formIsValid {
