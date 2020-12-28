@@ -6,26 +6,54 @@
 //
 
 import XCTest
+import Alamofire
 
 class ResponseCodableTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    struct PostStub: Codable {
+        let userId: Int
+        let id: Int
+        let title: String
+        let body: String
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    enum ApiErrorStub: Error {
+        case fatalError
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    struct ErrorParserStub: AbstractErrorParser {
+        func parse(_ result: Error) -> Error {
+            return ApiErrorStub.fatalError
+        }
+        
+        func parse(response: HTTPURLResponse?, data: Data?, error: Error?) -> Error? {
+            return error
+        }
+    }
+    
+    let expectation = XCTestExpectation(description: "https://jsonplaceholder.typicode.com/posts/1")
+    var errorParser: ErrorParserStub!
+
+    override func setUp() {
+        super.setUp()
+        errorParser = ErrorParserStub()
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+        errorParser = nil
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func testShouldDownloadAndParse() {
+        let errorParser = ErrorParserStub()
+        
+        AF.request("https://jsonplaceholder.typicode.com/posts/1").responseCodable(errorParser: errorParser) {(response: DataResponse<PostStub>) in
+            switch response.result {
+            case .success(_): break
+            case .failure:
+                XCTFail()
+            }
         }
     }
 

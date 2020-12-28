@@ -32,6 +32,7 @@
 		66C79C232598F365001DED5D /* ShopperViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C79C222598F365001DED5D /* ShopperViewModel.swift */; };
 		66C79C282598F37C001DED5D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C79C272598F37C001DED5D /* LoginViewModel.swift */; };
 		66C79C2D2598F3DD001DED5D /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C79C2C2598F3DD001DED5D /* Protocols.swift */; };
+		66F5E31D2599BE6F00C42C16 /* ResponseCodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F5E31C2599BE6F00C42C16 /* ResponseCodableTests.swift */; };
 		73D08B9040D8BA36C1E73C39 /* Pods_LSShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD191AFFC74126F9B31B1B8 /* Pods_LSShop.framework */; };
 		8F1A94255FC823B1827C4F3D /* Pods_LSShop_LSShopUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B68D306DCD7A52CAD9C079 /* Pods_LSShop_LSShopUITests.framework */; };
 /* End PBXBuildFile section */
@@ -88,6 +89,7 @@
 		66C79C222598F365001DED5D /* ShopperViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopperViewModel.swift; sourceTree = "<group>"; };
 		66C79C272598F37C001DED5D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		66C79C2C2598F3DD001DED5D /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		66F5E31C2599BE6F00C42C16 /* ResponseCodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCodableTests.swift; sourceTree = "<group>"; };
 		A2B68D306DCD7A52CAD9C079 /* Pods_LSShop_LSShopUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LSShop_LSShopUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3C82552CF3604CC70EDDECB /* Pods-LSShopTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LSShopTests.release.xcconfig"; path = "Target Support Files/Pods-LSShopTests/Pods-LSShopTests.release.xcconfig"; sourceTree = "<group>"; };
 		BFD191AFFC74126F9B31B1B8 /* Pods_LSShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LSShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				6658961E258B3FF4003B93C4 /* LSShopTests.swift */,
+				66F5E31C2599BE6F00C42C16 /* ResponseCodableTests.swift */,
 				66589620258B3FF4003B93C4 /* Info.plist */,
 			);
 			path = LSShopTests;
@@ -350,6 +353,7 @@
 				66589616258B3FF4003B93C4 /* Sources */,
 				66589617258B3FF4003B93C4 /* Frameworks */,
 				66589618258B3FF4003B93C4 /* Resources */,
+				996EE483415EFE84B316FF32 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -511,6 +515,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		996EE483415EFE84B316FF32 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LSShopTests/Pods-LSShopTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LSShopTests/Pods-LSShopTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LSShopTests/Pods-LSShopTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D51C17A734D61AAF78F0F3A5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -585,6 +606,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6658961F258B3FF4003B93C4 /* LSShopTests.swift in Sources */,
+				66F5E31D2599BE6F00C42C16 /* ResponseCodableTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -787,7 +809,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 41B0C293CCEFF9737BE740E1 /* Pods-LSShopTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5GWB2H668N;
@@ -810,7 +832,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A3C82552CF3604CC70EDDECB /* Pods-LSShopTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5GWB2H668N;

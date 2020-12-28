@@ -11,6 +11,7 @@ target 'LSShop' do
   target 'LSShopTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'Alamofire', '~> 5.2'
   end
 
   target 'LSShopUITests' do
