@@ -1,0 +1,21 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'LSShop' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for LSShop
+  pod 'Alamofire'
+
+  target 'LSShopTests' do
+    inherit! :search_paths
+    # Pods for testing
+    pod 'Alamofire', '~> 5.2'
+  end
+
+  target 'LSShopUITests' do
+    # Pods for testing
+  end
+
+end
