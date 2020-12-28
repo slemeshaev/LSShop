@@ -78,7 +78,6 @@ class LoginController: UIViewController {
     // MARK: - Selectors
     @objc func handleShowProducts() {
         let controller = ProductCatalogController()
-        controller.hidesBottomBarWhenPushed = false
         navigationController?.pushViewController(controller, animated: true)
     }
     
