@@ -21,6 +21,7 @@ class ResponseCodableTests: XCTestCase {
         case fatalError
     }
 
+    // почему-то здесь ошибка
     struct ErrorParserStub: AbstractErrorParser {
         func parse(_ result: Error) -> Error {
             return ApiErrorStub.fatalError
@@ -44,7 +45,7 @@ class ResponseCodableTests: XCTestCase {
         errorParser = nil
     }
 
-    
+    // и здесь ошибка
     func testShouldDownloadAndParse() {
         let errorParser = ErrorParserStub()
         
