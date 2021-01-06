@@ -1,0 +1,6 @@
+framework module Pods_LSShop_LSShopUITests {
+  umbrella header "Pods-LSShop-LSShopUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
