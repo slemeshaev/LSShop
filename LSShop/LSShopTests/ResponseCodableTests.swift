@@ -48,7 +48,6 @@ class ResponseCodableTests: XCTestCase {
     // и здесь ошибка
     func testShouldDownloadAndParse() {
         let errorParser = ErrorParserStub()
-        
         AF.request("https://jsonplaceholder.typicode.com/posts/1").responseCodable(errorParser: errorParser) {(response: DataResponse<PostStub>) in
             switch response.result {
             case .success(_): break

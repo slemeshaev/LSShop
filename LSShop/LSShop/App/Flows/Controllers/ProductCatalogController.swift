@@ -21,7 +21,9 @@ class ProductCatalogController: UIViewController {
     
     // MARK: - Selectors
     @objc func exitFromShop() {
-        print("Exit from Shop")
+        DispatchQueue.main.async {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     // MARK: - Helpers

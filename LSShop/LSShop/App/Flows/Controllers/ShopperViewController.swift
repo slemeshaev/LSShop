@@ -134,7 +134,7 @@ class ShopperViewController: UIViewController {
     }
     
     @objc func handleSignUpButton() {
-        print(#function)
+        navigationController?.popViewController(animated: true)
     }
     
     @objc func handleShowSignIn() {

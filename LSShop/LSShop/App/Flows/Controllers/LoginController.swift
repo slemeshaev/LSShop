@@ -77,8 +77,23 @@ class LoginController: UIViewController {
     
     // MARK: - Selectors
     @objc func handleShowProducts() {
+        guard let username = userNameTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        let requestFactory = RequestFactory()
+        let auth = requestFactory.makeAuthRequestFatory()
+        auth.login(username: username, password: password) { response in
+            switch response.result {
+            case .success(let login):
+                print("User \(login) logged in successfully")
+            case .failure(let error):
+                print("Error with \(error.localizedDescription)")
+            }
+        }
         let controller = ProductCatalogController()
-        navigationController?.pushViewController(controller, animated: true)
+        let navigationController = UINavigationController(rootViewController: controller)
+        navigationController.modalPresentationStyle = .fullScreen
+        self.present(navigationController, animated: true, completion: nil)
     }
     
     @objc func handleShowSignUp() {
